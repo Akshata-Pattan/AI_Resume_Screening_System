@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ATS Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>ATS Resume Screening Result</h1>
+
+    <!-- Score Card -->
+
+    <div class="score-card">
+
+        <h2>ATS Match Score</h2>
+
+        <div class="progress-circle">
+
+            <svg width="180" height="180">
+
+                <defs>
+
+                    <linearGradient id="gradient"
+                                    x1="0%"
+                                    y1="0%"
+                                    x2="100%"
+                                    y2="100%">
+
+                        <stop offset="0%"
+                              stop-color="#00d4ff"/>
+
+                        <stop offset="100%"
+                              stop-color="#7c3aed"/>
+
+                    </linearGradient>
+
+                </defs>
+
+                <circle
+
+                    class="bg"
+
+                    cx="90"
+
+                    cy="90"
+
+                    r="70">
+
+                </circle>
+
+                <circle
+
+                    class="progress"
+
+                    cx="90"
+
+                    cy="90"
+
+                    r="70"
+
+                    style="--score: {{ match_score }};">
+
+                </circle>
+
+            </svg>
+
+            <div class="score-text">
+
+                <span id="scoreValue">
+
+                    0
+
+                </span>%
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Summary Cards -->
+
+    <div class="summary">
+
+    <div class="summary-card">
+
+        <h3>🎯 ATS Score</h3>
+
+        <h2>
+
+            <span class="counter"
+                  data-target="{{ match_score }}">0</span>%
+
+        </h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>🧠 Semantic Match</h3>
+
+        <h2>
+
+            <span class="counter"
+                  data-target="{{ semantic_score }}">0</span>%
+
+        </h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>✅ Matched</h3>
+
+        <h2>
+
+            <span class="counter"
+                  data-target="{{ matched_count }}">0</span>
+
+        </h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>❌ Missing</h3>
+
+        <h2>
+
+            <span class="counter"
+                  data-target="{{ missing_count }}">0</span>
+
+        </h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>📋 Required</h3>
+
+        <h2>
+
+            <span class="counter"
+                  data-target="{{ total_required }}">0</span>
+
+        </h2>
+
+    </div>
+
+</div>
+<div class="card">
+
+    <h2>🏆 Resume Verdict</h2>
+
+    <div style="text-align:center;padding:20px;">
+
+        <h1 style="color:{{ verdict_color }};margin:0;">
+
+            {{ verdict }}
+
+        </h1>
+
+        <p style="color:#b5b5b5;font-size:18px;">
+
+            Based on ATS Score, Semantic Match and Skill Analysis
+
+        </p>
+
+    </div>
+
+</div>
+        <!-- Skill Cards -->
+
+    <div class="cards">
+
+        <!-- Matched Skills -->
+
+        <div class="card matched">
+
+            <h2>✅ Matched Skills</h2>
+
+            <ul>
+
+                {% for skill in matched_skills %}
+
+                    <li class="skill-item">
+
+                        {{ skill.title() }}
+
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+        <!-- Missing Skills -->
+
+        <div class="card missing">
+
+            <h2>❌ Missing Skills</h2>
+
+            <ul>
+
+                {% for skill in missing_skills %}
+
+                    <li class="skill-item">
+
+                        {{ skill.title() }}
+
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- AI Recommendations -->
+
+    <div class="card">
+
+<h2>🚀 AI Learning Roadmap</h2>
+
+<div class="roadmap">
+
+{% for item in roadmap %}
+
+<div class="roadmap-card">
+
+    <h3>📘 {{ item.title }}</h3>
+        <p>{{item.description}}</p>
+    
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+    <!-- Download Button -->
+
+    <div style="text-align:center; margin-top:35px;">
+
+        <a href="/download">
+
+            <button class="download-btn">
+
+                📄 Download ATS Report
+
+            </button>
+
+        </a>
+
+    </div>
+
+</div>
+<!-- ATS Score Animation -->
+
+<script>
+
+const finalScore = parseFloat("{{ match_score }}");
+
+let current = 0;
+
+const score = document.getElementById("scoreValue");
+
+const circle = document.querySelector(".progress");
+
+circle.style.setProperty("--score", 0);
+
+const atsTimer = setInterval(() => {
+
+    current += 1;
+
+    if(current >= finalScore){
+
+        current = finalScore;
+
+        clearInterval(atsTimer);
+
+    }
+
+    score.textContent = current.toFixed(finalScore % 1 ? 2 : 0);
+
+    circle.style.setProperty("--score", current);
+
+},20);
+
+</script>
+
+<!-- Summary Counter Animation -->
+
+<script>
+
+document.querySelectorAll(".counter").forEach(counter=>{
+
+    const target = Number(counter.dataset.target);
+
+    let current = 0;
+
+    const step = target / 60;
+
+    function updateCounter(){
+
+        current += step;
+
+        if(current >= target){
+
+            current = target;
+
+        }
+
+        if(Number.isInteger(target)){
+
+            counter.textContent = Math.floor(current);
+
+        }else{
+
+            counter.textContent = current.toFixed(2);
+
+        }
+
+        if(current < target){
+
+            requestAnimationFrame(updateCounter);
+
+        }
+
+    }
+
+    updateCounter();
+
+});
+
+</script>
+
+<!-- Skill Animation -->
+
+<script>
+
+const skills = document.querySelectorAll(".skill-item");
+
+skills.forEach((skill,index)=>{
+
+    skill.style.opacity="0";
+
+    skill.style.transform="translateX(-25px)";
+
+    skill.style.transition="0.5s ease";
+
+    setTimeout(()=>{
+
+        skill.style.opacity="1";
+
+        skill.style.transform="translateX(0px)";
+
+    },index*120);
+
+});
+
+</script>
+
+</body>
+</html>

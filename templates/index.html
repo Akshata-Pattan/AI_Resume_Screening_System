@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Resume Screening System</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+    <div class="bg-animation">
+
+        <span class="blob blob1"></span>
+        <span class="blob blob2"></span>
+        <span class="blob blob3"></span>
+
+    </div>
+
+    <div class="main-wrapper">
+
+        <!-- Hero Section -->
+
+        <section class="hero">
+
+            <div class="hero-badge">
+
+                🚀 AI Powered ATS
+
+            </div>
+
+            <h1>
+
+                AI Resume
+                <span>Screening System</span>
+
+            </h1>
+
+            <p>
+
+                Upload your resume, compare it with a Job Description and
+                instantly receive an ATS Score, AI Skill Analysis,
+                Missing Skills and Professional Recommendations.
+
+            </p>
+
+        </section>
+
+        <!-- Main Card -->
+
+        <div class="glass-card">
+
+            <form action="/analyze"
+                method="POST"
+                enctype="multipart/form-data">
+
+                <!-- Resume Upload -->
+
+                <div class="section-title">
+
+                    📄 Upload Resume
+
+                </div>
+
+                <label class="upload-box">
+
+                    <input
+                        type="file"
+                        id="resume"
+                        name="resume"
+                        accept=".pdf"
+                        required>
+                        <div class="upload-icon" id="uploadIcon">
+
+    ☁️
+
+</div>
+
+<h3 id="uploadTitle">
+
+    Drag & Drop Resume
+
+</h3>
+
+<p id="uploadText">
+
+    or Click to Browse
+
+</p>
+
+<small id="fileName">
+
+    PDF files only
+
+</small>
+
+                </label>
+
+                <!-- Job Description -->
+
+                <div class="section-title">
+
+                    💼 Job Description
+
+                </div>
+
+                <textarea
+
+                    id="job_description"
+                    name="job_description"
+
+                    placeholder="Paste the complete Job Description here..."
+
+                    required>
+
+                </textarea>
+
+                <!-- Features -->
+
+                <div class="features">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+
+                            🎯
+
+                        </div>
+
+                        <h4>
+
+                            ATS Score
+
+                        </h4>
+
+                        <p>
+
+                            Smart Resume Matching
+
+                        </p>
+
+                    </div>
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+
+                            🤖
+
+                        </div>
+
+                        <h4>
+
+                            AI Analysis
+
+                        </h4>
+
+                        <p>
+
+                            Semantic Resume Analysis
+
+                        </p>
+
+                    </div>
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+
+                            📊
+
+                        </div>
+
+                        <h4>
+
+                            Skill Report
+
+                        </h4>
+
+                        <p>
+
+                            Missing & Matched Skills
+
+                        </p>
+
+                    </div>
+                                    </div>
+
+                <button type="submit" class="analyze-btn">
+
+                    ✨ Analyze Resume
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- Why Choose -->
+
+        <section class="info-section">
+
+            <div class="info-box">
+
+                <h3>⚡ Fast Analysis</h3>
+
+                <p>
+
+                    Get ATS score, semantic analysis,
+                    matched skills and recommendations
+                    within seconds.
+
+                </p>
+
+            </div>
+
+            <div class="info-box">
+
+                <h3>🧠 AI Powered</h3>
+
+                <p>
+
+                    Uses NLP, Semantic Matching
+                    and intelligent skill extraction
+                    for better accuracy.
+
+                </p>
+
+            </div>
+
+            <div class="info-box">
+
+                <h3>📄 Professional Report</h3>
+
+                <p>
+
+                    Download your ATS report
+                    instantly as a PDF.
+
+                </p>
+
+            </div>
+
+        </section>
+<footer>
+
+<h3>
+
+🤖 AI Resume Screening System
+
+</h3>
+
+<p>
+
+Developed using Flask • Python • NLP • Machine Learning • Semantic Analysis
+
+</p>
+
+<p>
+
+© 2026 All Rights Reserved
+
+</p>
+
+</footer>
+
+    </div>
+    <!-- Loading Screen -->
+
+<div id="loader">
+
+    <div class="loader-card">
+
+        <div class="loader-circle"></div>
+
+        <h2>AI Resume Analysis</h2>
+
+        <p id="loadingText">
+
+            Initializing...
+
+        </p>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script>
+
+const resumeInput = document.getElementById("resume");
+
+const uploadIcon = document.getElementById("uploadIcon");
+
+const uploadTitle = document.getElementById("uploadTitle");
+
+const uploadText = document.getElementById("uploadText");
+
+const fileName = document.getElementById("fileName");
+
+resumeInput.addEventListener("change", function(){
+
+    if(this.files.length > 0){
+
+        uploadIcon.innerHTML = "✅";
+
+        uploadTitle.innerHTML = "Resume Uploaded";
+
+        uploadText.innerHTML = "Ready for Analysis";
+
+        fileName.innerHTML = this.files[0].name;
+
+    }
+
+});
+
+</script>
+</body>
+
+</html>

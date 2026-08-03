@@ -1,0 +1,50 @@
+python
+java
+c
+c++
+c#
+sql
+mysql
+postgresql
+mongodb
+html
+css
+javascript
+react
+node.js
+express.js
+flask
+django
+fastapi
+streamlit
+tensorflow
+keras
+pytorch
+scikit-learn
+pandas
+numpy
+matplotlib
+seaborn
+opencv
+machine learning
+deep learning
+artificial intelligence
+nlp
+computer vision
+generative ai
+langchain
+llamaindex
+crewai
+rag
+prompt engineering
+docker
+kubernetes
+git
+github
+linux
+aws
+azure
+gcp
+power bi
+tableau
+excel
