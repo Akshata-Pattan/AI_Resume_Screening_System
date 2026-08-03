@@ -1,27 +1,52 @@
 # 🤖 AI Resume Screening System
 
-An AI-powered Resume Screening System developed using **Python** and **Flask** to automate resume analysis, extract relevant skills, calculate ATS compatibility, and provide personalized learning recommendations.
+An AI-powered **Resume Screening System** that analyzes resumes against job descriptions using **Natural Language Processing (NLP)** and **Sentence Transformers**. The application calculates an ATS score, identifies missing skills, measures semantic similarity, generates personalized learning recommendations, and creates a downloadable PDF report.
+
+🌐 **Live Demo:** https://ai-resume-screening-system-qfob.onrender.com/
 
 ---
 
-## ✨ Features
+## 📌 Features
 
 - 📄 Upload resumes in PDF format
-- 🧠 Automatic skill extraction using NLP
-- 🎯 Semantic matching between resume and required skills
-- 📊 ATS score calculation
-- 📑 PDF ATS report generation
-- 🛣️ Personalized learning roadmap suggestions
-- 💻 Clean and responsive web interface
+- 📝 Enter any job description
+- 🧠 AI-powered semantic similarity using Sentence Transformers
+- 🎯 Automatic skill extraction
+- 📊 ATS compatibility score calculation
+- ✅ Matched & missing skills analysis
+- 📚 Personalized learning roadmap
+- 📑 Downloadable ATS Report (PDF)
+- 💻 Responsive and user-friendly interface
+- ☁️ Deployed on Render
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Backend:** Python, Flask
-- **Frontend:** HTML, CSS, JavaScript
-- **Libraries:** NLP, PDF Processing
-- **Tools:** Git, GitHub, VS Code
+### Backend
+- Python
+- Flask
+
+### Frontend
+- HTML5
+- CSS3
+- JavaScript
+
+### AI & Machine Learning
+- Sentence Transformers
+- PyTorch
+- Scikit-learn
+
+### Libraries
+- PyPDF2
+- ReportLab
+- NumPy
+- Requests
+
+### Deployment
+- Git
+- GitHub
+- Render
 
 ---
 
@@ -31,20 +56,42 @@ An AI-powered Resume Screening System developed using **Python** and **Flask** t
 AI_Resume_Screening_System/
 │
 ├── dataset/
+│   └── skills.txt
+│
 ├── static/
-│   ├── css/
-│   └── js/
+│   ├── style.css
+│   └── script.js
+│
 ├── templates/
+│   ├── index.html
+│   └── result.html
+│
 ├── utils/
+│   ├── pdf_generator.py
+│   ├── roadmap.py
+│   ├── semantic_match.py
+│   ├── skill_extraction.py
+│   └── text_preprocessing.py
+│
+├── uploads/
 ├── app.py
 ├── requirements.txt
+├── runtime.txt
 ├── README.md
 └── .gitignore
 ```
 
 ---
 
-## 🚀 Installation
+## 🚀 Live Demo
+
+🔗 **Try the application here**
+
+https://ai-resume-screening-system-qfob.onrender.com/
+
+---
+
+## ⚙️ Installation
 
 ### Clone the repository
 
@@ -52,7 +99,7 @@ AI_Resume_Screening_System/
 git clone https://github.com/Akshata-Pattan/AI_Resume_Screening_System.git
 ```
 
-### Navigate to the project folder
+### Navigate to the project directory
 
 ```bash
 cd AI_Resume_Screening_System
@@ -70,30 +117,97 @@ pip install -r requirements.txt
 python app.py
 ```
 
+Visit:
+
+```
+http://127.0.0.1:5000
+```
+
+---
+
+## 📖 How It Works
+
+1. Upload a PDF resume.
+2. Paste the job description.
+3. Extract skills from both resume and job description.
+4. Compare them using semantic similarity.
+5. Calculate ATS compatibility score.
+6. Display:
+   - ATS Score
+   - Semantic Score
+   - Matched Skills
+   - Missing Skills
+   - Resume Verdict
+   - Learning Roadmap
+7. Download the ATS report as a PDF.
+
 ---
 
 ## 🎯 Future Enhancements
 
-- Multi-job description comparison
-- AI-based resume improvement suggestions
-- Resume ranking system
-- Dashboard with analytics
-- Cloud deployment
+- 🔐 User Authentication
+- 📊 Resume Analytics Dashboard
+- 🤖 AI Resume Improvement Suggestions
+- 📁 Resume History
+- 📌 Multiple Resume Comparison
+- 🌍 Multi-language Resume Support
 
 ---
 
-## 🤝 Contributions
+## 📷 Screenshots
 
-Contributions, suggestions, and improvements are welcome.
+> Add screenshots of your application here.
 
-If you find this project useful, consider giving it a ⭐.
+### Home Page
+
+```
+screenshots/home.png
+```
+
+### Result Page
+
+```
+screenshots/result.png
+```
+
+### ATS Report
+
+```
+screenshots/report.png
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions, suggestions, and feature requests are welcome.
+
+If you'd like to contribute:
+
+1. Fork the repository
+2. Create a new branch
+3. Commit your changes
+4. Open a Pull Request
 
 ---
 
 ## 👩‍💻 Author
 
-**Akshata**
+**Akshata Pattan**
+
+- GitHub: https://github.com/Akshata-Pattan
+- LinkedIn: https://www.linkedin.com/in/akshata-pattan-b39832342
 
 ---
 
-⭐ If you like this project, don't forget to **Star** this repository!
+## ⭐ Support
+
+If you found this project useful, please consider giving it a **⭐ Star** on GitHub.
+
+It helps others discover the project and motivates future improvements.
+
+---
+
+## 📜 License
+
+This project is intended for educational and learning purposes.
