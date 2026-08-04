@@ -1,35 +1,32 @@
-# ⭐ ResumePilot – AI Resume Screening System
+# 🤖 ResumePilot – AI Resume Screening System
 
-An AI-powered ATS (Applicant Tracking System) that analyzes resumes against job descriptions using Natural Language Processing and Semantic Matching. The application provides an ATS score, identifies matched and missing skills, generates personalized learning recommendations, and allows users to download a professional ATS report.
+ResumePilot is an AI-powered Resume Screening System that helps evaluate resumes against job descriptions using ATS scoring and semantic similarity analysis. It extracts key skills, identifies skill gaps, provides personalized learning recommendations, and generates a downloadable PDF report to help users improve their resumes.
 
 ---
 
 ## ✨ Features
 
-- 📄 Resume Upload (PDF)
+- 📄 Upload Resume (PDF)
+- 📝 Analyze Resume against Job Description
 - 🎯 ATS Match Score
-- 🧠 AI Semantic Analysis
+- 🧠 AI Semantic Similarity Analysis
 - ✅ Matched Skills Detection
 - ❌ Missing Skills Identification
 - 📈 Resume Quality Verdict
-- 🚀 Personalized Learning Roadmap
-- 📑 Downloadable PDF ATS Report
-- 🌙 Modern Responsive Dark UI
+- 📚 Personalized Learning Roadmap
+- 📑 Downloadable ATS Report (PDF)
+- 🌙 Modern and Responsive User Interface
 
 ---
 
 ## 🛠️ Tech Stack
 
-- Python
-- Flask
-- HTML5
-- CSS3
-- JavaScript
-- Sentence Transformers
-- Scikit-learn
-- PyPDF2
-- ReportLab
-- Gunicorn
+- **Backend:** Python, Flask
+- **Frontend:** HTML, CSS, JavaScript
+- **AI & NLP:** Sentence Transformers, Scikit-learn
+- **Libraries:** PyPDF2, ReportLab, Pandas, NumPy
+- **Version Control:** Git & GitHub
+- **Deployment:** Render
 
 ---
 
@@ -42,72 +39,91 @@ ResumePilot/
 ├── requirements.txt
 ├── runtime.txt
 ├── Procfile
-├── templates/
+├── dataset/
 ├── static/
+├── templates/
 ├── utils/
-├── assets/
-└── README.md
+├── README.md
+└── .gitignore
 ```
 
 ---
 
 ## 🚀 Getting Started
 
+### Clone the Repository
+
 ```bash
 git clone https://github.com/Akshata-Pattan/AI_Resume_Screening_System.git
+```
 
+### Navigate to the Project Directory
+
+```bash
 cd AI_Resume_Screening_System
+```
 
-python -m venv venv
+### Install Dependencies
 
-venv\Scripts\activate
-
+```bash
 pip install -r requirements.txt
+```
 
+### Run the Application
+
+```bash
 python app.py
+```
+
+Open your browser and visit:
+
+```
+http://127.0.0.1:5000
 ```
 
 ---
 
-## 📸 Screenshots
+## 📌 How It Works
 
-> Add your project screenshots here.
-
-- Home Page
-- Resume Upload
-- ATS Analysis
-- Skill Analysis
-- Learning Roadmap
-- PDF Report
+1. Upload your resume in PDF format.
+2. Paste the target job description.
+3. Click **Analyze Resume**.
+4. View:
+   - ATS Score
+   - Semantic Similarity Score
+   - Matched Skills
+   - Missing Skills
+   - Resume Verdict
+   - Learning Roadmap
+5. Download the ATS Report as a PDF.
 
 ---
 
 ## 🔮 Future Enhancements
 
-- Multi-language Resume Analysis
-- AI Career Recommendations
+- AI-powered Resume Suggestions
 - Multiple Resume Comparison
-- Cloud Deployment
-- Analytics Dashboard
+- Resume History Dashboard
+- User Authentication
+- Cloud-based Storage
 
 ---
 
 ## 👩‍💻 Author
 
-**Akshata**
+**Akshata Pattan**
 
-BE – Artificial Intelligence & Machine Learning
+Artificial Intelligence & Machine Learning Engineer
 
-📧 LinkedIn: https://www.linkedin.com/in/akshata-pattan-b39832342
-
-💻 GitHub: https://github.com/Akshata-Pattan
+- **GitHub:** https://github.com/Akshata-Pattan
+- **LinkedIn:** https://www.linkedin.com/in/akshata-pattan-b39832342
 
 ---
 
 ## ⭐ Support
 
-If you found this project helpful, please consider giving it a **⭐ Star** on GitHub.
+If you found this project useful, please consider giving it a **⭐ Star** on GitHub.
 
-It motivates me to build more AI-powered projects and contribute to the developer community.
+Your support motivates me to build more AI-powered applications and contribute to the developer community.
 
-**Thank you for visiting ResumePilot! ❤️**
+Thank you for visiting **ResumePilot**! 🚀
